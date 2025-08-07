@@ -18,6 +18,10 @@
             --font-family-body: 'Montserrat', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-family-body);
             line-height: 1.6;
@@ -25,7 +29,6 @@
             padding: 0;
             background-color: var(--light-gray);
             color: var(--dark-gray);
-            scroll-behavior: smooth;
         }
 
         .container {
@@ -38,12 +41,18 @@
         header {
             background: var(--primary-color);
             color: var(--white);
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: var(--accent-color) 4px solid;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 5px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
         }
 
         header a {
@@ -51,11 +60,13 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
+            transition: color 0.3s ease;
         }
 
         header ul {
             padding: 0;
             list-style: none;
+            margin: 0;
         }
 
         header li {
@@ -63,19 +74,10 @@
             padding: 0 20px;
         }
 
-        header #branding {
-            float: left;
-        }
-
         header #branding h1 {
             margin: 0;
             font-family: var(--font-family-headings);
             font-weight: 700;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
         }
         
         header a:hover {
@@ -83,8 +85,6 @@
             font-weight: bold;
         }
         
-        /* === NEW HERO SECTION STYLING (SKY TO SOIL) === */
-
         @keyframes animateGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -104,20 +104,18 @@
 
         #hero {
             position: relative;
-            height: 90vh; /* Using viewport height for a more immersive feel */
+            height: 90vh;
             color: var(--white);
-            display: flex; /* Using Flexbox for perfect centering */
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-
-            /* The "Sky to Soil" Gradient */
             background: linear-gradient(180deg, #4682B4, #D2B48C, #8B4513, #3D2B1F);
             background-size: 150% 150%;
             animation: animateGradient 18s ease infinite;
-            overflow: hidden; /* To contain the shape divider */
+            overflow: hidden;
         }
         
         .hero-content {
@@ -126,17 +124,17 @@
         }
 
         #hero h1 {
-            font-size: 4.5vw; /* Responsive font size */
+            font-size: clamp(2.5rem, 4.5vw, 4.5rem);
             margin-bottom: 20px;
             font-family: var(--font-family-headings);
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.7); /* More pronounced shadow */
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
             font-weight: 700;
         }
 
         #hero p {
-            font-size: 1.5vw; /* Responsive font size */
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
             max-width: 800px;
-            margin-bottom: 30px;
+            margin: 0 auto 30px auto;
             text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
         }
         
@@ -153,12 +151,11 @@
         }
 
         .button:hover {
-            background: #D32F2F; /* A slightly darker red on hover */
-            transform: translateY(-3px) scale(1.05); /* Lifts the button */
+            background: #D32F2F;
+            transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        /* The organic shape separator between Hero and About */
         .shape-divider {
             position: absolute;
             bottom: 0;
@@ -173,36 +170,45 @@
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 120px; /* Adjust height of the curve */
+            height: 120px;
         }
 
         .shape-divider .shape-fill {
-            fill: var(--light-gray); /* Color must match the section below */
+            fill: var(--light-gray);
         }
-
-        /* === END OF NEW HERO SECTION STYLING === */
         
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         section h2 {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-family: var(--font-family-headings);
-            font-size: 36px;
+            font-size: 38px;
             color: var(--primary-color);
         }
         
         #about {
-            padding-top: 100px; /* More space because of the curve */
+            padding-top: 100px;
             background-color: var(--light-gray);
         }
 
         #about .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
 
@@ -210,51 +216,52 @@
             text-align: justify;
         }
         
-        /* UPDATED PLACEHOLDER STYLING */
         .placeholder-image {
             width: 100%;
             height: 300px;
             background-color: #ccc;
-            border-radius: 5px;
-            overflow: hidden; /* Important for keeping image inside borders */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .placeholder-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
+            object-fit: cover;
             display: block;
         }
-        /* END OF UPDATED STYLING */
 
         #crisis {
-            background-color: var(--white); /* Alternate background colors */
+            background-color: var(--white);
         }
 
+        /* === THIS IS THE FIX === */
         #crisis .crisis-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            /* This creates a responsive grid that will be 2 columns on most screens, and 1 column on small screens */
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
         }
 
         .crisis-card {
             background: var(--white);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            border-radius: 8px;
             text-align: center;
             border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .crisis-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
         }
 
         .crisis-card .placeholder-image {
             height: 200px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .crisis-card h3 {
@@ -267,13 +274,19 @@
              background-color: var(--light-gray);
         }
 
-        #solutions .solution {
+        .solution {
             background: var(--white);
-            margin-bottom: 20px;
-            padding: 20px;
-            border-left: 5px solid var(--secondary-color);
-            border-radius: 5px;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-left: 7px solid var(--secondary-color);
+            border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .solution:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         #solutions h3 {
@@ -301,19 +314,20 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-sizing: border-box;
         }
 
         #team {
-             background-color: #3D2B1F; /* Darker brown */
+             background-color: #3D2B1F;
              color: var(--white);
         }
 
@@ -328,19 +342,20 @@
         }
 
         .team-member {
-            padding: 15px;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
         }
         
         .team-member h4 {
-            color: var(--secondary-color); /* Lighter brown for contrast */
+            color: var(--secondary-color);
         }
 
         footer {
             background: var(--dark-gray);
             color: var(--white);
             text-align: center;
-            padding: 20px;
+            padding: 30px;
         }
     </style>
 </head>
@@ -348,7 +363,7 @@
     <header>
         <div class="container">
             <div id="branding">
-                <h1>SOILidarity</h1>
+                <h1><a href="#hero">SOILidarity</a></h1>
             </div>
             <nav>
                 <ul>
@@ -356,22 +371,19 @@
                     <li><a href="#crisis">The Crisis</a></li>
                     <li><a href="#solutions">Our Solutions</a></li>
                     <li><a href="#petition">Petition</a></li>
-                    <li><a href="#team">About Us</a></li>
+                    <li><a href="#team">The Team</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- CORRECTED STRUCTURE: <main> tag now wraps everything -->
     <main>
-        <!-- REVISED HERO SECTION -->
         <section id="hero">
             <div class="hero-content">
                 <h1>Stand for Porac. Stand for SOILidarity.</h1>
                 <p>The compounded environmental and social crisis in Porac, Pampanga demands our immediate attention. Join us in advocating for a just and sustainable future.</p>
                 <a href="#petition" class="button">Sign the Petition Now</a>
             </div>
-            <!-- Organic shape divider -->
             <div class="shape-divider">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.83C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
@@ -379,7 +391,7 @@
             </div>
         </section>
         
-        <section id="about">
+        <section id="about" class="fade-in-section">
             <div class="container">
                 <h2>The Unseen Crisis Unfolding in Porac</h2>
                 <div class="about-content">
@@ -394,7 +406,7 @@
             </div>
         </section>
 
-        <section id="crisis">
+        <section id="crisis" class="fade-in-section">
             <div class="container">
                 <h2>Four Dimensions of a Compounded Crisis</h2>
                 <div class="crisis-grid">
@@ -430,7 +442,7 @@
             </div>
         </section>
 
-        <section id="solutions">
+        <section id="solutions" class="fade-in-section">
             <div class="container">
                 <h2>Pathways to a Green and Just Community</h2>
                 <div class="solution">
@@ -456,7 +468,7 @@
             </div>
         </section>
 
-        <section id="petition">
+        <section id="petition" class="fade-in-section">
             <div class="container">
                 <h2>Add Your Voice. Sign the Petition.</h2>
                 <form id="petition-form">
@@ -478,7 +490,7 @@
             </div>
         </section>
 
-        <section id="team">
+        <section id="team" class="fade-in-section">
             <div class="container">
                 <h2>About Us</h2>
                 <div class="team-grid">
@@ -528,25 +540,16 @@
     <script>
         document.getElementById('petition-form').addEventListener('submit', function(event) {
             event.preventDefault();
-
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const agree = document.getElementById('agree').checked;
             const formMessage = document.getElementById('form-message');
-            
             let errors = [];
 
-            if (name.trim() === '') {
-                errors.push("Full Name is required.");
-            }
-            if (email.trim() === '') {
-                errors.push("Email Address is required.");
-            } else if (!email.includes('@')) {
-                 errors.push("Please enter a valid email address.");
-            }
-            if (!agree) {
-                errors.push("You must agree to the statement.");
-            }
+            if (name.trim() === '') { errors.push("Full Name is required."); }
+            if (email.trim() === '') { errors.push("Email Address is required."); } 
+            else if (!email.includes('@')) { errors.push("Please enter a valid email address.");}
+            if (!agree) { errors.push("You must agree to the statement."); }
 
             if (errors.length > 0) {
                 formMessage.innerHTML = `<p style="color: #ffdddd;">${errors.join('<br>')}</p>`;
@@ -554,6 +557,27 @@
                  formMessage.innerHTML = '<p style="color: #d4edda;">Thank you for signing! Your voice has been added.</p>';
                  document.getElementById('petition-form').reset();
             }
+        });
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const options = {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
