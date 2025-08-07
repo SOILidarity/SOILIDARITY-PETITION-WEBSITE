@@ -62,6 +62,22 @@
             font-size: 16px;
             transition: color 0.3s ease;
         }
+        
+        /* === LOGO STYLING (NEW) === */
+        #branding a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+            margin-right: 15px;
+        }
 
         header ul {
             padding: 0;
@@ -78,11 +94,11 @@
             margin: 0;
             font-family: var(--font-family-headings);
             font-weight: 700;
+            font-size: 24px;
         }
         
         header a:hover {
             color: var(--secondary-color);
-            font-weight: bold;
         }
         
         @keyframes animateGradient {
@@ -236,10 +252,8 @@
             background-color: var(--white);
         }
 
-        /* === THIS IS THE FIX === */
         #crisis .crisis-grid {
             display: grid;
-            /* This creates a responsive grid that will be 2 columns on most screens, and 1 column on small screens */
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
         }
@@ -355,7 +369,17 @@
             background: var(--dark-gray);
             color: var(--white);
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px; /* Increased padding */
+        }
+        
+        /* === FOOTER LOGO (NEW) === */
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 20px; /* Space between logo and text */
         }
     </style>
 </head>
@@ -363,7 +387,11 @@
     <header>
         <div class="container">
             <div id="branding">
-                <h1><a href="#hero">SOILidarity</a></h1>
+                <a href="#hero">
+                    <!-- LOGO ADDED HERE -->
+                    <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/c894674f6415fbb5dc44c053b269b5560bd3769a/images/Gemini_Generated_Image_3nugd53nugd53nug.png" alt="SOILidarity Logo" class="header-logo">
+                    <h1>SOILidarity</h1>
+                </a>
             </div>
             <nav>
                 <ul>
@@ -533,6 +561,8 @@
     
     <footer>
         <div class="container">
+            <!-- LOGO ADDED HERE -->
+            <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/c894674f6415fbb5dc44c053b269b5560bd3769a/images/Gemini_Generated_Image_3nugd53nugd53nug.png" alt="SOILidarity Logo" class="footer-logo">
             <p>&copy; 2025 SOILidarity. All Rights Reserved.</p>
         </div>
     </footer>
