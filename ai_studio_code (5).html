@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETA: Justice for Porac - A Call for Environmental and Social Action</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #2c3e50; /* Dark Slate Blue */
+            --secondary-color: #8E2430; /* HAU Red */
+            --accent-color: #c0392b; /* Stronger Red */
+            --light-gray: #ecf0f1;
+            --white-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1594723057310-a7d015c1e298?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--white-color);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--white-color);
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            color: var(--white-color);
+            text-decoration: none;
+        }
+        
+        .nav-logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .nav-logo h2 {
+             font-family: 'Montserrat', sans-serif;
+             font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--light-gray);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+           width: 100%;
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        /* --- The Problem Section (Corrected) --- */
+        #problem {
+             background: var(--white-color);
+        }
+        .crisis-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* Alternating layout */
+        .crisis-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .crisis-section .text {
+            flex: 1;
+        }
+        .crisis-section .text h3 {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--secondary-color);
+             font-size: 1.8rem;
+             margin-bottom: 1rem;
+        }
+
+        .crisis-section .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .crisis-section .image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* --- Causes Section --- */
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--white-color);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+        }
+
+
+        /* --- Solutions Section (Corrected) --- */
+        #solutions {
+            background: var(--white-color);
+        }
+
+        .solutions .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .solution-card {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--secondary-color);
+        }
+        
+        .solution-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        
+        .solution-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Petition Section --- */
+        #petition {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        .petition .section-title {
+            color: var(--white-color);
+        }
+
+        .petition p {
+             max-width: 800px;
+             margin: 0 auto 2.5rem auto;
+             font-size: 1.1rem;
+        }
+        
+        .petition-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            gap: 1rem;
+        }
+
+        .petition-form input,
+        .petition-form textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .petition-form button {
+            background-color: var(--accent-color);
+            color: var(--white-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .petition-form button:hover {
+            background-color: var(--white-color);
+            color: var(--accent-color);
+        }
+
+        /* --- Footer Section (Corrected) --- */
+        footer {
+            background-color: #1e2b38;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+        
+        .footer-logos {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logos img {
+            height: 70px;
+        }
+
+        footer .disclaimer {
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Modal for Solutions --- */
+        .modal {
+            display: none; position: fixed; z-index: 1001;
+            left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: #fefefe; margin: 10% auto; padding: 40px;
+            border: 1px solid #888; width: 60%; max-width: 800px;
+            border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            position: relative; animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {transform: translateY(-50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+        
+        .close-button {
+            color: #aaa; position: absolute; top: 15px; right: 25px;
+            font-size: 28px; font-weight: bold;
+        }
+        
+        .close-button:hover, .close-button:focus {
+            color: black; text-decoration: none; cursor: pointer;
+        }
+
+        #modal-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media(max-width: 768px) {
+             header h1 { font-size: 2.5rem; }
+             header p { font-size: 1.2rem; }
+             nav { font-size: 0.8rem; }
+             nav ul { display: none; } /* Or create a hamburger menu */
+             .crisis-section, .crisis-section:nth-child(even) {
+                 flex-direction: column;
+             }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="home">
+        <div class="container">
+            <h1>PETA: The Compounded Environmental and Social Crisis of Resource Extraction in Porac, Pampanga</h1>
+            <p>A fight for environmental protection, social justice, and a sustainable future.</p>
+            <a href="#petition" class="cta-button">Sign the Petition</a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+             <a href="#home" class="nav-logo">
+                <!-- TUTORIAL: Replace this 'src' with the direct URL to your BEd logo image -->
+                <img src="https://i.imgur.com/83542em.png" alt="HAU Basic Education Logo">
+                <h2>ESCi Advocacy</h2>
+             </a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#causes">The Causes</a></li>
+                <li><a href="#solutions">Our Solutions</a></li>
+                <li><a href="#petition">Petition</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="problem">
+        <div class="container">
+            <h2 class="section-title">A Land in Peril: The Problems We Face</h2>
+            
+            <div class="crisis-section">
+                <div class="text">
+                    <h3>Soil Degradation</h3>
+                    <p>Our foundation is crumbling! Aggressive quarrying and lingering lahar deposits are stripping away fertile topsoil, leaving our land barren, scarred, and vulnerable to erosion.</p>
+                </div>
+                <div class="image">
+                    <!-- TUTORIAL: Replace this 'src' with the direct URL to an image showing soil erosion or scarred land -->
+                    <img src="https://images.unsplash.com/photo-1615174413164-2491564b1828?q=80&w=1932" alt="Soil Erosion">
+                </div>
+            </div>
+
+            <div class="crisis-section">
+                <div class="text">
+                    <h3>Ancestral Land Conflict</h3>
+                    <p>The rights of the Aeta community, the original stewards of this land, are being sidelined by commercial interests. This isn't just an environmental issue; it's a crisis of social justice.</p>
+                </div>
+                <div class="image">
+                    <!-- TUTORIAL: Replace this 'src' with an image representing indigenous communities or their land -->
+                    <img src="https://images.unsplash.com/photo-1473188543322-48283a38b368?q=80&w=2070" alt="Ancestral Land">
+                </div>
+            </div>
+
+             <div class="crisis-section">
+                <div class="text">
+                    <h3>Geohazard Risks</h3>
+                    <p>Living on unstable lahar is a ticking time bomb. With every rainy season, the risk of devastating landslides threatens homes, infrastructure, and, most importantly, human lives.</p>
+                </div>
+                <div class="image">
+                     <!-- TUTORIAL: Replace this 'src' with an image of a landslide or flood risk area -->
+                    <img src="https://images.unsplash.com/photo-1603954238837-567118218a56?q=80&w=1974" alt="Geohazard Risk">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="causes">
+        <div class="container">
+            <h2 class="section-title">Understanding the Root Causes</h2>
+            <div class="causes-grid">
+                <div class="card">
+                    <h3>Unsustainable Quarrying</h3>
+                    <p>Unregulated and irresponsible quarrying operations are carving up our landscape, a primary cause of the dust that chokes our air and the erosion that wounds our land.</p>
+                </div>
+                <div class="card">
+                    <h3>Legacy of Pinatubo</h3>
+                    <p>Decades later, the eruption's massive lahar deposits still dominate the terrain. This has created a permanent environmental challenge demanding bold solutions.</p>
+                </div>
+                <div class="card">
+                    <h3>Deforestation & Top-Down Planning</h3>
+                    <p>Widespread loss of trees destroyed nature's defenses. For too long, decisions have been made without consulting the people who live here, breeding distrust and failure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <h2 class="section-title">Pioneering a Green Future: Our Solutions</h2>
+            <div class="grid-5">
+                <div class="solution-card" onclick="showSolution(1)">
+                     <div class="icon">✊</div>
+                    <h3>Respect the Roots!</h3>
+                    <p>Establish a co-management council to give the Aeta community a REAL seat at the table.</p>
+                </div>
+                <div class="solution-card" onclick="showSolution(2)">
+                    <div class="icon">🏗️</div>
+                    <h3>Build Brilliantly!</h3>
+                    <p>Strictly enforce "no-build" zones and pioneer eco-engineering solutions to protect our communities.</p>
+                </div>
+                <div class="solution-card" onclick="showSolution(3)">
+                    <div class="icon">🌾</div>
+                    <h3>From Hazard to Harvest!</h3>
+                    <p>Our "Lahar-to-Livelihood" program will empower farmers while creating new income streams.</p>
+                </div>
+                <div class="solution-card" onclick="showSolution(4)">
+                    <div class="icon">👀</div>
+                    <h3>The People's Watchtower!</h3>
+                    <p>Form an INDEPENDENT monitoring team to ensure transparency and accountability.</p>
+                </div>
+                 <div class="solution-card" onclick="showSolution(5)">
+                    <div class="icon">🌳</div>
+                    <h3>Unleash the Green Shield!</h3>
+                    <p>Mandate "Green Buffer Zones" of native trees to fight pollution, crush erosion, and restore our ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <div id="solution-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+
+    <section id="petition" class="petition">
+        <div class="container">
+            <h2 class="section-title">Join the Movement. Sign the Petition.</h2>
+            <p>Add your name to demand immediate action from local and national authorities to implement these vital solutions. Together, we can create a sustainable and just future for Porac.</p>
+            <form id="petition-form" class="petition-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="comment" rows="5" placeholder="Leave a message of support (optional)"></textarea>
+                <button type="submit">Sign for Change</button>
+            </form>
+             <div id="thank-you-message" style="display: none; margin-top: 2rem;">
+                <h3>Thank you for your support!</h3>
+                <p>Your voice has been added to the call for a better future for Porac.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+             <div class="footer-logos">
+                 <!-- TUTORIAL: Replace these 'src' values with direct URLs to your logos -->
+                <img src="https://i.imgur.com/83542em.png" alt="Holy Angel University Basic Education Logo">
+                <img src="https://i.imgur.com/uT57a2t.png" alt="Holy Angel University Logo">
+            </div>
+            <p class="disclaimer">
+                This website is an academic project created for the course ESCi (Earth Science) by a Grade 11 STEM student of Holy Angel University Basic Education. The content presented is for educational and advocacy simulation purposes only and does not represent an official petition or stance by Holy Angel University. All information is based on the research provided for the project.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Smooth Scrolling for Navigation Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Petition Form Submission ---
+        document.getElementById('petition-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the page from reloading
+            
+            // You can add code here to actually send the data to a server if you want
+            // For now, we'll just show the thank you message.
+            
+            document.getElementById('petition-form').style.display = 'none';
+            document.querySelector('#petition p').style.display = 'none'; // Hide the paragraph too
+            document.getElementById('thank-you-message').style.display = 'block';
+        });
+        
+        // --- Modal Functionality for Solutions ---
+        const modal = document.getElementById('solution-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalText = document.getElementById('modal-text');
+
+        const solutions = {
+            1: {
+                title: "Quarrying Moratorium and Co-Management Program",
+                text: "To directly address the conflict with the Aeta community, a temporary halt on all quarrying activities within the officially recognized 18,660-hectare ancestral domain is recommended. During this moratorium, a co-management council should be established, comprising representatives from the Aeta community, the local government of Porac, the Department of Environment and Natural Resources (DENR), and quarrying operators. This council will be tasked with creating a new, sustainable quarrying and land use plan that respects the Aeta's Certificate of Ancestral Domain Title (CADT). This approach ensures that the indigenous community is central to the decision-making process regarding the use of their land, in line with the Indigenous Peoples' Rights Act (IPRA)."
+            },
+            2: {
+                title: "Eco-Engineered Geohazard Mitigation",
+                text: "Given the inherent instability of lahar deposits, a 'no-build' policy for critical infrastructure on the most vulnerable sites should be strictly enforced. For existing structures and communities at risk, a system of engineered solutions, such as diversion channels and retaining walls, should be designed and implemented to mitigate lahar flow. Furthermore, the community should transition away from traditional landfills. A prime example to follow is the development of the new materials recovery facility in Porac. This facility will treat and segregate waste, significantly reducing the volume that needs to be stored and minimizing the environmental risk."
+            },
+            3: {
+                title: "Lahar-to-Livelihood Integrated Rehabilitation Program",
+                text: "This program will focus on the dual goals of rehabilitating lahar-covered agricultural lands and creating sustainable livelihoods. Financial and technical assistance will be provided to farmers for the removal of lahar deposits, a practice authorized for agricultural land rehabilitation. The extracted sand and lahar materials can then be sold to support the construction industry, creating a circular economy. Reforestation efforts within the upper Pampanga River Basin should be intensified, contracting with local communities to re-establish vegetation."
+            },
+             4: {
+                title: "Independent Multi-Sectoral Environmental Monitoring Team",
+                text: "To ensure compliance with environmental regulations, an independent monitoring team should be formed, including scientists, NGOs, members of the Aeta community, and officials from the DENR and DPWH. Their mandate will be to conduct regular, unannounced inspections of quarrying operations and waste management facilities and have the authority to recommend the immediate suspension of activities that violate environmental laws."
+            },
+            5: {
+                title: "Green Buffer Zone and Reforestation Plan",
+                text: "A mandatory 'Green Buffer Zone' should be established around all quarry sites and along riverbanks. This involves planting native trees to create a natural barrier that helps control dust, reduce noise pollution, and prevent soil erosion. This plan should prioritize indigenous plant species and involve the Aeta community in the selection, planting, and maintenance, integrating their traditional ecological knowledge into the conservation efforts."
+            }
+        };
+
+        function showSolution(id) {
+            modalTitle.textContent = solutions[id].title;
+            modalText.textContent = solutions[id].text;
+            modal.style.display = 'block';
+        }
+        
+        function closeModal() {
+             modal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
