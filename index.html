@@ -16,6 +16,8 @@
             --white: #fff;
             --font-family-headings: 'Lora', serif;
             --font-family-body: 'Montserrat', sans-serif;
+            --chart-bar-color: #4682B4;
+            --chart-bg-color: #f0f0f0;
         }
 
         /* CRITICAL FIX: Smooth scrolling for anchor links */
@@ -59,13 +61,11 @@
             align-items: center;
         }
 
-        /* UPDATED: Flexbox for branding alignment */
         #branding {
             display: flex;
             align-items: center;
         }
 
-        /* NEW: Styles for the header logo */
         .header-logo {
             width: 45px;
             height: 45px;
@@ -185,12 +185,20 @@
 
         section { padding: 60px 0; }
         section h2 { text-align: center; margin-bottom: 40px; font-family: var(--font-family-headings); font-size: 36px; color: var(--primary-color); }
+        
+        /* Justified text for body content */
+        .about-text p,
+        .crisis-card p,
+        .solution p,
+        .team-member p {
+            text-align: justify;
+        }
+        
         #about { padding-top: 100px; background-color: var(--light-gray); }
         #about .about-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center; }
         #crisis .crisis-grid, #team .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        #crisis, #team { background-color: var(--white); }
+        #crisis, #team, #data-visualization { background-color: var(--white); }
         
-        /* Styling for the new image tags */
         .placeholder-image {
             width: 100%;
             height: auto;
@@ -219,13 +227,101 @@
             padding: 20px; 
         }
 
-        /* NEW: Styles for the footer logo */
         .footer-logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
+        }
+
+        /* === Data Visualization Section Styles === */
+        #data-visualization .vis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .chart-container {
+            width: 100%;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+        .chart-container h4 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-family: var(--font-family-headings);
+        }
+        .bar-chart .chart {
+            width: 100%;
+            height: 250px;
+            background: var(--chart-bg-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 10px 0;
+            border-radius: 5px;
+            position: relative;
+        }
+        .bar-chart .bar {
+            background-color: var(--chart-bar-color);
+            width: 40px;
+            animation: grow-bar 1.5s ease-out forwards;
+            position: relative;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .bar-chart .bar::after {
+            content: attr(data-year);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: var(--dark-gray);
+        }
+         .bar-chart .bar span {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            color: var(--dark-gray);
+            font-weight: bold;
+         }
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+        .stat-card {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .stat-card .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: var(--font-family-headings);
+            margin: 0 0 10px 0;
+        }
+        .stat-card .stat-label {
+            font-size: 16px;
+            margin: 0;
+        }
+        .data-source {
+            font-style: italic;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
         }
 
 
@@ -298,12 +394,18 @@
 
             #hero {
                 height: auto;
-                min-height: 60vh;
+                min-height: 80vh; /* Adjusted for better spacing */
                 padding: 80px 20px;
+                box-sizing: border-box; /* Ensures padding is calculated correctly */
             }
 
-            #hero h1 { font-size: 8vw; }
-            #hero p { font-size: 4vw; }
+            /* CORRECTED: Added padding-bottom to create margin for the button */
+            .hero-content {
+                padding-bottom: 50px;
+            }
+
+            #hero h1 { font-size: 10vw; }
+            #hero p { font-size: 4.5vw; }
             
             .shape-divider svg { height: 80px; }
             #about { padding-top: 80px; }
@@ -323,6 +425,9 @@
             .checkbox-group label {
                 margin-bottom: 0;
             }
+            #data-visualization .vis-grid {
+               grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -330,7 +435,6 @@
     <header>
         <div class="container">
             <div id="branding">
-                <!-- ADDED LOGO -->
                 <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/Gemini_Generated_Image_3nugd53nugd53nug.png" alt="SOILidarity Logo" class="header-logo">
                 <h1><a href="#">SOILidarity</a></h1>
             </div>
@@ -338,6 +442,7 @@
                 <ul class="desktop-nav">
                     <li><a href="#about">About</a></li>
                     <li><a href="#crisis">The Crisis</a></li>
+                    <li><a href="#data-visualization">The Data</a></li>
                     <li><a href="#solutions">Our Solutions</a></li>
                     <li><a href="#petition">Petition</a></li>
                     <li><a href="#team">The Team</a></li>
@@ -353,6 +458,7 @@
                     <ul class="mobile-nav">
                          <li><a href="#about">About</a></li>
                          <li><a href="#crisis">The Crisis</a></li>
+                         <li><a href="#data-visualization">The Data</a></li>
                          <li><a href="#solutions">Our Solutions</a></li>
                          <li><a href="#petition">Petition</a></li>
                          <li><a href="#team">The Team</a></li>
@@ -396,28 +502,68 @@
                     <div class="crisis-card">
                         <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/image_2025-08-08_002128187.png" alt="Lahar landscape" class="placeholder-image">
                         <h3>Geological Legacy & Enduring Hazard</h3>
-                        <p>The quarrying industry extracts lahar, an inherently unstable material. Building critical infrastructure like a large-scale landfill on this foundation creates a persistent geohazard, a failure in risk-informed land-use planning.</p>
+                        <p>The 1991 Pinatubo eruption deposited over 5 cubic kilometers of volcanic material on its slopes. Decades later, this lahar is systematically extracted. Research on the Pasig-Potrero River shows quarrying is removing sediment 246 times faster than natural replenishment, destabilizing the riverbed and intensifying erosion. This aggressive extraction on inherently unstable lahar deposits creates a persistent geohazard, a failure in risk-informed land-use planning.</p>
                     </div>
                     <div class="crisis-card">
                         <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/image_2025-08-08_002210420.png" alt="Quarrying operations" class="placeholder-image">
                         <h3>Economic Drivers vs. Environmental Costs</h3>
-                        <p>The immense economic pressure from quarrying and waste disposal directly opposes environmental protection, leading to land degradation and potential water contamination. The profits are privatized, while the environmental and social costs are borne by the public.</p>
+                        <p>The economic draw is immense, with Pampanga's quarrying revenues exceeding PHP 1 billion in 2023 alone. However, this income externalizes the true costs. Over-extraction leads to land degradation and threatens water security. The Pasig-Potrero River, a vital waterway, is already considered biologically dead in downstream sections due to pollution, a problem exacerbated by upstream sediment disruption.</p>
                     </div>
                     <div class="crisis-card">
                         <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/image_2025-08-08_002230540.png" alt="Portrait of Aeta resistance" class="placeholder-image">
                         <h3>Acute Social Justice Dimension</h3>
-                        <p>Mining operations encroach on the ancestral domain of the Aeta people, a critical issue of environmental justice. Their resistance is a defense of sacred lands, burial grounds, and cultural survival against national economic priorities.</p>
+                        <p>Quarrying operations and proposed landfills encroach upon the 18,660-hectare ancestral domain awarded to over 12,000 Ayta Mag-indi and Ayta Mag-antsi. This land, legally recognized under CADT 123, is central to their cultural and economic survival. Their resistance highlights a severe conflict between national economic priorities and the legally mandated rights of indigenous peoples, turning this into a critical environmental justice issue.</p>
                     </div>
                     <div class="crisis-card">
                         <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/image_2025-08-08_002258396.png" alt="Government building or map" class="placeholder-image">
                         <h3>Microcosm of Governance Failure</h3>
-                        <p>Porac encapsulates failures in environmental impact assessment, enforcement of land-use laws in hazardous areas, protection of indigenous rights, and public access to crucial environmental data and emergency protocols.</p>
+                        <p>The situation in Porac reveals significant governance gaps. The National Bureau of Investigation (NBI) and DENR have previously conducted raids on illegal quarrying operations within ancestral domains, seizing billions in equipment. This points to failures in consistent enforcement, transparent environmental impact assessments, and the protection of indigenous rights as stipulated in the Indigenous Peoples' Rights Act (IPRA) of 1997.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="solutions">
+        <section id="data-visualization">
+            <div class="container">
+                <h2>The Crisis in Numbers</h2>
+                <div class="vis-grid">
+                    <div class="chart-container bar-chart">
+                        <h4>Pampanga Quarry Revenue (PHP Millions)</h4>
+                        <div class="chart">
+                            <div class="bar" style="height: 38%;" data-year="2019"><span>460</span></div>
+                            <div class="bar" style="height: 51%;" data-year="2020"><span>610</span></div>
+                            <div class="bar" style="height: 65%;" data-year="2021"><span>783</span></div>
+                            <div class="bar" style="height: 62%;" data-year="2022"><span>739</span></div>
+                            <div class="bar" style="height: 88%;" data-year="2023"><span>1,056</span></div>
+                        </div>
+                        <p class="data-source">Source: Phil. Information Agency, Inquirer.net</p>
+                    </div>
+                    <div class="chart-container">
+                        <div class="stat-card">
+                            <div class="stat-number">18,660</div>
+                            <p class="stat-label">Hectares of Ancestral Domain Awarded to Aeta Communities in Porac (CADT 123)</p>
+                        </div>
+                        <p class="data-source">Source: Philippine News Agency, NCIP</p>
+                    </div>
+                     <div class="chart-container">
+                        <div class="stat-card" style="background-color: #A1887F;">
+                            <div class="stat-number">246x</div>
+                            <p class="stat-label">Faster Sediment Extraction Rate Compared to Natural Replenishment in Pasig-Potrero River</p>
+                        </div>
+                        <p class="data-source">Source: MGB-DENR Geohazard Study</p>
+                    </div>
+                    <div class="chart-container">
+                        <div class="stat-card" style="background-color: var(--accent-color);">
+                            <div class="stat-number">12,000+</div>
+                            <p class="stat-label">Indigenous People (Ayta Mag-indi & Ayta Mag-antsi) Inhabiting the Ancestral Domain</p>
+                        </div>
+                        <p class="data-source">Source: Pampanga News Now, PIA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" style="background-color: #F9F9F9;">
             <div class="container">
                 <h2>Pathways to a Green and Just Community</h2>
                 <div class="solution">
@@ -508,7 +654,6 @@
 
     <footer>
         <div class="container">
-            <!-- ADDED FOOTER LOGO -->
             <img src="https://raw.githubusercontent.com/SOILidarity/SOILIDARITY-PETITION-WEBSITE/d91ff562e395bcb92c9720698ce16ba205d2e643/images/Gemini_Generated_Image_3nugd53nugd53nug.png" alt="SOILidarity Logo" class="footer-logo">
             <p>&copy; 2025 SOILidarity. All Rights Reserved.</p>
         </div>
@@ -543,4 +688,4 @@
         });
     </script>
 </body>
-</html>```
+</html>
