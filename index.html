@@ -20,10 +20,7 @@
             --chart-bg-color: #f0f0f0;
         }
 
-        /* CRITICAL FIX: Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-family-body);
@@ -32,7 +29,6 @@
             padding: 0;
             background-color: var(--light-gray);
             color: var(--dark-gray);
-            /* Prevents the white line on the side from the mobile menu */
             overflow-x: hidden;
         }
 
@@ -55,130 +51,31 @@
             z-index: 1000;
         }
         
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #branding {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--secondary-color);
-        }
-
-        header a {
-            color: var(--white);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        header #branding h1 {
-            margin: 0;
-            font-family: var(--font-family-headings);
-            font-weight: 700;
-            font-size: 24px;
-        }
-
-        header .desktop-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        header .desktop-nav li {
-            display: inline;
-            padding: 0 20px;
-        }
-
-        header .desktop-nav a:hover {
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-
-        .hamburger-menu {
-            display: none;
-        }
-        
-        #menu-toggle {
-            display: none;
-        }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        #branding { display: flex; align-items: center; }
+        .header-logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--secondary-color); }
+        header a { color: var(--white); text-decoration: none; text-transform: uppercase; font-size: 16px; }
+        header #branding h1 { margin: 0; font-family: var(--font-family-headings); font-weight: 700; font-size: 24px; }
+        header .desktop-nav { list-style: none; padding: 0; margin: 0; }
+        header .desktop-nav li { display: inline; padding: 0 20px; }
+        header .desktop-nav a:hover { color: var(--secondary-color); font-weight: bold; }
+        .hamburger-menu, #menu-toggle { display: none; }
         
         /* === HERO SECTION === */
-        @keyframes animateGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes animateGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         #hero {
-            position: relative;
-            height: 90vh;
-            color: var(--white);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
+            position: relative; height: 90vh; color: var(--white); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; padding: 0 20px;
             background: linear-gradient(180deg, #4682B4, #D2B48C, #8B4513, #3D2B1F);
-            background-size: 150% 150%;
-            animation: animateGradient 18s ease infinite;
-            overflow: hidden;
+            background-size: 150% 150%; animation: animateGradient 18s ease infinite; overflow: hidden;
         }
-
-        .hero-content {
-            z-index: 2;
-            animation: fadeInUp 1.5s ease-out forwards;
-        }
-
-        #hero h1 {
-            font-size: 4.5vw;
-            margin-bottom: 20px;
-            font-family: var(--font-family-headings);
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
-            font-weight: 700;
-        }
-
-        #hero p {
-            font-size: 1.5vw;
-            max-width: 800px;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
-
-        .button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .button:hover {
-            background: #D32F2F;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        
+        .hero-content { z-index: 2; animation: fadeInUp 1.5s ease-out forwards; }
+        #hero h1 { font-size: 4.5vw; margin-bottom: 20px; font-family: var(--font-family-headings); text-shadow: 3px 3px 8px rgba(0,0,0,0.7); font-weight: 700; }
+        #hero p { font-size: 1.5vw; max-width: 800px; margin-bottom: 30px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+        .button { display: inline-block; background: var(--accent-color); color: var(--white); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .button:hover { background: #D32F2F; transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
         .shape-divider { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; transform: rotate(180deg); }
         .shape-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 120px; }
         .shape-divider .shape-fill { fill: var(--light-gray); }
@@ -186,31 +83,19 @@
         section { padding: 60px 0; }
         section h2 { text-align: center; margin-bottom: 40px; font-family: var(--font-family-headings); font-size: 36px; color: var(--primary-color); }
         
-        /* Justified text for body content */
-        .about-text p,
-        .crisis-card p,
-        .solution p,
-        .team-member p {
-            text-align: justify;
-        }
+        .about-text p, .crisis-card p, .solution p, .team-member p { text-align: justify; }
         
         #about { padding-top: 100px; background-color: var(--light-gray); }
         #about .about-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center; }
-        #crisis .crisis-grid, #team .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        #crisis, #team, #data-visualization { background-color: var(--white); }
         
-        .placeholder-image {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 5px;
-            background-color: #ccc;
-        }
-        .crisis-card .placeholder-image {
-             height: 200px;
-             margin-bottom: 15px;
-        }
+        /* Default Grid for Mobile-First */
+        #crisis .crisis-grid, #team .team-grid, #data-visualization .vis-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        
+        #crisis, #team, #data-visualization, #references { background-color: var(--white); }
+        #solutions { background-color: var(--light-gray); }
+
+        .placeholder-image { width: 100%; height: auto; max-height: 300px; object-fit: cover; border-radius: 5px; background-color: #ccc; }
+        .crisis-card .placeholder-image { height: 200px; margin-bottom: 15px; }
 
         #solutions .solution { background: var(--white); margin-bottom: 20px; padding: 20px; border-left: 5px solid var(--secondary-color); border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         #petition { background: var(--primary-color); color: var(--white); }
@@ -220,214 +105,78 @@
         .form-group label { display: block; margin-bottom: 5px; }
         .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
         
-        footer { 
-            background: var(--dark-gray); 
-            color: var(--white); 
-            text-align: center; 
-            padding: 20px; 
-        }
-
-        .footer-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
+        footer { background: var(--dark-gray); color: var(--white); text-align: center; padding: 20px; }
+        .footer-logo { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
 
         /* === Data Visualization Section Styles === */
-        #data-visualization .vis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            align-items: flex-start;
-        }
-        .chart-container {
-            width: 100%;
-            padding: 20px;
-            background: var(--light-gray);
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            box-sizing: border-box;
-        }
-        .chart-container h4 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-family: var(--font-family-headings);
-        }
-        .bar-chart .chart {
-            width: 100%;
-            height: 250px;
-            background: var(--chart-bg-color);
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            padding: 10px 0;
-            border-radius: 5px;
-            position: relative;
-        }
-        .bar-chart .bar {
-            background-color: var(--chart-bar-color);
-            width: 40px;
-            animation: grow-bar 1.5s ease-out forwards;
-            position: relative;
-            text-align: center;
-            color: white;
-            font-weight: bold;
-        }
-        .bar-chart .bar::after {
-            content: attr(data-year);
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            color: var(--dark-gray);
-        }
-         .bar-chart .bar span {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 13px;
-            color: var(--dark-gray);
-            font-weight: bold;
-         }
-        @keyframes grow-bar {
-            from { height: 0; }
-        }
+        .chart-container { width: 100%; padding: 20px; background: var(--light-gray); border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); box-sizing: border-box; }
+        .chart-container h4 { text-align: center; margin-top: 0; margin-bottom: 25px; font-family: var(--font-family-headings); }
+        .bar-chart .chart { width: 100%; height: 250px; background: var(--chart-bg-color); display: flex; justify-content: space-around; align-items: flex-end; padding: 10px 0; border-radius: 5px; position: relative; }
+        .bar-chart .bar { background-color: var(--chart-bar-color); width: 40px; animation: grow-bar 1.5s ease-out forwards; position: relative; text-align: center; color: white; font-weight: bold; }
+        .bar-chart .bar::after { content: attr(data-year); position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--dark-gray); }
+        .bar-chart .bar span { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 13px; color: var(--dark-gray); font-weight: bold; }
+        @keyframes grow-bar { from { height: 0; } }
+        
+        /* Updated Stat Card for flexible height */
         .stat-card {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 25px;
-            text-align: center;
-            border-radius: 8px;
-            height: 100%;
-            box-sizing: border-box;
+            background-color: var(--primary-color); color: var(--white); padding: 25px; text-align: center;
+            border-radius: 8px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
         }
-        .stat-card .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            font-family: var(--font-family-headings);
-            margin: 0 0 10px 0;
-        }
-        .stat-card .stat-label {
-            font-size: 16px;
-            margin: 0;
-        }
-        .data-source {
-            font-style: italic;
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-            margin-top: 10px;
-        }
+        .stat-card .stat-number { font-size: 48px; font-weight: 700; font-family: var(--font-family-headings); margin: 0 0 10px 0; }
+        .stat-card .stat-label { font-size: 16px; margin: 0; }
+        .data-source { font-style: italic; font-size: 12px; color: #666; text-align: center; margin-top: 10px; }
 
+        /* === References Section Styles === */
+        #references { background-color: #EFEBE9; }
+        .references-list { max-width: 900px; margin: 0 auto; }
+        .references-list h4 { font-family: var(--font-family-headings); color: var(--primary-color); margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid var(--secondary-color); padding-bottom: 5px; }
+        .references-list ul { list-style: none; padding: 0; }
+        .references-list li { margin-bottom: 18px; line-height: 1.5; text-align: left; }
+        .references-list li a { color: var(--accent-color); text-decoration: none; word-break: break-all; }
+        .references-list li a:hover { text-decoration: underline; }
+
+        /* === DESKTOP LAYOUT OVERRIDES (The magic happens here) === */
+        @media (min-width: 769px) {
+            #crisis .crisis-grid,
+            #data-visualization .vis-grid {
+                grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
+                gap: 40px; /* More space for desktop */
+                align-items: stretch; /* KEY: Makes all cards in a row the same height */
+            }
+
+            #team .team-grid {
+                grid-template-columns: repeat(4, 1fr); /* A 4-column grid for the team */
+                gap: 30px;
+            }
+        }
 
         /* === MOBILE RESPONSIVE STYLES (max-width: 768px) === */
         @media (max-width: 768px) {
-            header .desktop-nav {
-                display: none;
-            }
+            header .desktop-nav { display: none; }
+            .hamburger-menu { display: block; position: relative; z-index: 1010; }
+            .menu-icon { display: block; cursor: pointer; padding: 10px; user-select: none; }
+            .menu-icon .bar { display: block; width: 25px; height: 3px; background-color: var(--white); margin: 5px auto; transition: all 0.3s ease-in-out; }
+            .mobile-nav { list-style: none; padding: 20px; margin: 0; display: block; position: fixed; top: 84px; right: -100%; width: 80%; max-width: 300px; height: 100vh; background-color: var(--dark-gray); transition: right 0.4s ease-in-out; box-shadow: -5px 0 15px rgba(0,0,0,0.2); }
+            .mobile-nav li { padding: 15px 0; text-align: center; border-bottom: 1px solid var(--primary-color); }
+            .mobile-nav li:last-child { border-bottom: none; }
+            #menu-toggle:checked ~ .menu-icon .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+            #menu-toggle:checked ~ .menu-icon .bar:nth-child(2) { opacity: 0; }
+            #menu-toggle:checked ~ .menu-icon .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+            #menu-toggle:checked ~ .mobile-nav { right: 0; }
 
-            .hamburger-menu {
-                display: block;
-                position: relative;
-                z-index: 1010;
-            }
-
-            .menu-icon {
-                display: block;
-                cursor: pointer;
-                padding: 10px;
-                user-select: none;
-            }
-
-            .menu-icon .bar {
-                display: block;
-                width: 25px;
-                height: 3px;
-                background-color: var(--white);
-                margin: 5px auto;
-                transition: all 0.3s ease-in-out;
-            }
-
-            .mobile-nav {
-                list-style: none;
-                padding: 20px;
-                margin: 0;
-                display: block;
-                position: fixed;
-                top: 84px;
-                right: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background-color: var(--dark-gray);
-                transition: right 0.4s ease-in-out;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            }
-
-            .mobile-nav li {
-                padding: 15px 0;
-                text-align: center;
-                border-bottom: 1px solid var(--primary-color);
-            }
-
-            .mobile-nav li:last-child {
-                border-bottom: none;
-            }
-            
-            #menu-toggle:checked ~ .menu-icon .bar:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            #menu-toggle:checked ~ .menu-icon .bar:nth-child(2) {
-                opacity: 0;
-            }
-            #menu-toggle:checked ~ .menu-icon .bar:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-            #menu-toggle:checked ~ .mobile-nav {
-                right: 0;
-            }
-
-            #hero {
-                height: auto;
-                min-height: 80vh; /* Adjusted for better spacing */
-                padding: 80px 20px;
-                box-sizing: border-box; /* Ensures padding is calculated correctly */
-            }
-
-            /* CORRECTED: Added padding-bottom to create margin for the button */
-            .hero-content {
-                padding-bottom: 50px;
-            }
-
+            #hero { height: auto; min-height: 80vh; padding: 80px 20px; box-sizing: border-box; }
+            .hero-content { padding-bottom: 50px; }
             #hero h1 { font-size: 10vw; }
-            #hero p { font-size: 4.5vw; }
+            #hero p { font-size: 4.5vw; text-align: center; }
             
             .shape-divider svg { height: 80px; }
             #about { padding-top: 80px; }
             section { padding: 40px 0; }
             section h2 { font-size: 28px; }
 
-            .form-group.checkbox-group {
-                display: flex;
-                align-items: flex-start;
-            }
-            .checkbox-group input {
-                flex-shrink: 0;
-                width: auto;
-                margin-top: 5px;
-                margin-right: 12px;
-            }
-            .checkbox-group label {
-                margin-bottom: 0;
-            }
-            #data-visualization .vis-grid {
-               grid-template-columns: 1fr;
-            }
+            .form-group.checkbox-group { display: flex; align-items: flex-start; }
+            .checkbox-group input { flex-shrink: 0; width: auto; margin-top: 5px; margin-right: 12px; }
+            .checkbox-group label { margin-bottom: 0; }
         }
     </style>
 </head>
@@ -446,6 +195,7 @@
                     <li><a href="#solutions">Our Solutions</a></li>
                     <li><a href="#petition">Petition</a></li>
                     <li><a href="#team">The Team</a></li>
+                    <li><a href="#references">References</a></li>
                 </ul>
 
                 <div class="hamburger-menu">
@@ -462,6 +212,7 @@
                          <li><a href="#solutions">Our Solutions</a></li>
                          <li><a href="#petition">Petition</a></li>
                          <li><a href="#team">The Team</a></li>
+                         <li><a href="#references">References</a></li>
                     </ul>
                 </div>
             </nav>
@@ -536,7 +287,7 @@
                             <div class="bar" style="height: 62%;" data-year="2022"><span>739</span></div>
                             <div class="bar" style="height: 88%;" data-year="2023"><span>1,056</span></div>
                         </div>
-                        <p class="data-source">Source: Phil. Information Agency, Inquirer.net</p>
+                        <p class="data-source">Source: Inquirer.net, Philippine Information Agency</p>
                     </div>
                     <div class="chart-container">
                         <div class="stat-card">
@@ -550,20 +301,20 @@
                             <div class="stat-number">246x</div>
                             <p class="stat-label">Faster Sediment Extraction Rate Compared to Natural Replenishment in Pasig-Potrero River</p>
                         </div>
-                        <p class="data-source">Source: MGB-DENR Geohazard Study</p>
+                        <p class="data-source">Source: Philippine News Agency, MGB-DENR Study</p>
                     </div>
                     <div class="chart-container">
                         <div class="stat-card" style="background-color: var(--accent-color);">
                             <div class="stat-number">12,000+</div>
                             <p class="stat-label">Indigenous People (Ayta Mag-indi & Ayta Mag-antsi) Inhabiting the Ancestral Domain</p>
                         </div>
-                        <p class="data-source">Source: Pampanga News Now, PIA</p>
+                        <p class="data-source">Source: UNCO News, PNA</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="solutions" style="background-color: #F9F9F9;">
+        <section id="solutions">
             <div class="container">
                 <h2>Pathways to a Green and Just Community</h2>
                 <div class="solution">
@@ -615,38 +366,45 @@
             <div class="container">
                 <h2>The Research & Advocacy Team</h2>
                 <div class="team-grid">
-                     <div class="team-member">
-                        <h4>Fausto, Romer Gerard G.</h4>
-                        <p>Lead on eco-engineered solutions and landfill alternatives.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Fernando, Nicole</h4>
-                        <p>Researched successful community-led environmental programs.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Flores, Cezs Flona Z.</h4>
-                        <p>Contributed research on socio-economic aspects of land rehabilitation.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Flores, Chase Jarish C.</h4>
-                        <p>Collated research, synthesized points, and handled final revisions.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Galang, Miel Ezra U.</h4>
-                        <p>Collaborated on solutions for reforestation and sustainable agriculture.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Galang, Princess Yohan</h4>
-                        <p>Lead on quarrying co-management and green buffer zones.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Gozun, Rian Bridget</h4>
-                        <p>Provided key data on soil infertility and agricultural rehabilitation.</p>
-                    </div>
-                    <div class="team-member">
-                        <h4>Guevarra, Rhianna J.</h4>
-                        <p>Lead on independent environmental monitoring and policy review.</p>
-                    </div>
+                     <div class="team-member"> <h4>Fausto, Romer Gerard G.</h4> <p>Lead on eco-engineered solutions and landfill alternatives.</p> </div>
+                     <div class="team-member"> <h4>Fernando, Nicole</h4> <p>Researched successful community-led environmental programs.</p> </div>
+                     <div class="team-member"> <h4>Flores, Cezs Flona Z.</h4> <p>Contributed research on socio-economic aspects of land rehabilitation.</p> </div>
+                     <div class="team-member"> <h4>Flores, Chase Jarish C.</h4> <p>Collated research, synthesized points, and handled final revisions.</p> </div>
+                     <div class="team-member"> <h4>Galang, Miel Ezra U.</h4> <p>Collaborated on solutions for reforestation and sustainable agriculture.</p> </div>
+                     <div class="team-member"> <h4>Galang, Princess Yohan</h4> <p>Lead on quarrying co-management and green buffer zones.</p> </div>
+                     <div class="team-member"> <h4>Gozun, Rian Bridget</h4> <p>Provided key data on soil infertility and agricultural rehabilitation.</p> </div>
+                     <div class="team-member"> <h4>Guevarra, Rhianna J.</h4> <p>Lead on independent environmental monitoring and policy review.</p> </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references">
+            <div class="container">
+                <h2>References</h2>
+                <div class="references-list">
+                    <h4>Data Visualizations & Key Figures</h4>
+                    <ul>
+                        <li>Pampanga Quarry Revenue: Based on reports from the Philippine Information Agency (PIA) and Inquirer.net regarding provincial government collections.</li>
+                        <li>Ancestral Domain (18,660 ha): Data from the National Commission on Indigenous Peoples (NCIP) on Certificate of Ancestral Domain Title (CADT) 123, reported by the Philippine News Agency (PNA).</li>
+                        <li>Sediment Extraction Rate (246x): Figure from geohazard assessments and technical studies on the Pasig-Potrero river basin by the Mines and Geosciences Bureau (MGB-DENR).</li>
+                        <li>Aeta Population (12,000+): Population figures based on data from local news outlets like UNCO News and PIA reports covering the communities included in CADT 123.</li>
+                    </ul>
+
+                    <h4>General Sources</h4>
+                    <ul>
+                        <li>Addressing land Degradation: Benefits, Costs, and Policy Directions. (n.d.). PIDS. <a href="https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidspjd10-1landdegradation.pdf" target="_blank" rel="noopener">https://pidswebs.pids.gov.ph/CDN/PUBLICATIONS/pidspjd10-1landdegradation.pdf</a></li>
+                        <li>A review of soil degradation in the Philippines. (2014). ResearchGate. <a href="https://www.researchgate.net/publication/259884368_A_review_of_soil_degradation_in_the_Philippines" target="_blank" rel="noopener">https://www.researchgate.net/publication/259884368...</a></li>
+                        <li>BCDA to adopt waste-to-energy technologies in Clark. (2023). BCDA. <a href="https://www.bcda.gov.ph/news/bcda-adopt-waste-energy-technologies-clark" target="_blank" rel="noopener">https://www.bcda.gov.ph/news/bcda-adopt-waste-energy-technologies-clark</a></li>
+                        <li>Clark - Sindicatum Sustainable Resources. (n.d.). Sindicatum. <a href="https://sindicatum.com/portfolio/clark/" target="_blank" rel="noopener">https://sindicatum.com/portfolio/clark/</a></li>
+                        <li>Environmental group calls for suspension of Pampanga landfill. (2024). Manila Standard. <a href="https://manilastandard.net/business/314605262/environmental-group-calls-for-suspension-of-pampanga-landfill.html" target="_blank" rel="noopener">https://manilastandard.net/business/314605262/...</a></li>
+                        <li>Pampanga, Bulacan face possible flooding, erosion. (2019). Philippine News Agency. <a href="https://www.pna.gov.ph/articles/1080059" target="_blank" rel="noopener">https://www.pna.gov.ph/articles/1080059</a></li>
+                        <li>Pinatubo Aetas resist mining project. (2011). Inquirer News. <a href="https://newsinfo.inquirer.net/783/pinatubo-aetas-resist-mining-project" target="_blank" rel="noopener">https://newsinfo.inquirer.net/783/pinatubo-aetas-resist-mining-project</a></li>
+                        <li>Sector F Water-Related Environment Management. (n.d.). JICA. <a href="https://openjicareport.jica.go.jp/pdf/12018982_04.pdf" target="_blank" rel="noopener">https://openjicareport.jica.go.jp/pdf/12018982_04.pdf</a></li>
+                        <li>Sitio Pidpid Aetas Continue to Suffer Over Quarrying. (2019). Unco News. <a href="https://unconewshau.wordpress.com/2019/01/20/sitio-pidpid-aetas-continue-to-suffer-over-quarrying/" target="_blank" rel="noopener">https://unconewshau.wordpress.com/2019/01/20/sitio-pidpid-aetas...</a></li>
+                        <li>SMC completes cleanup of Pampanga River. (2023). Better Rivers PH. <a href="https://betterrivers.com.ph/our-impact/featured-stories/smc-completes-cleanup-of-pampanga-river" target="_blank" rel="noopener">https://betterrivers.com.ph/our-impact/featured-stories/smc-completes...</a></li>
+                        <li>The impact of the 1991 Plinian eruption of Mt. Pinatubo... (2022). PreventionWeb.net. <a href="https://www.preventionweb.net/media/82633/download" target="_blank" rel="noopener">https://www.preventionweb.net/media/82633/download</a></li>
+                        <li>The Philippines's alternative weekly magazine - Bulatlat. (2005). Bulatlat. <a href="https://www.bulatlat.com/news/5-11/5-11-smc.htm" target="_blank" rel="noopener">https://www.bulatlat.com/news/5-11/5-11-smc.htm</a></li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -660,7 +418,6 @@
     </footer>
     
     <script>
-        // Form validation logic
         document.getElementById('petition-form').addEventListener('submit', function(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
@@ -670,17 +427,16 @@
             let errors = [];
             if (name.trim() === '') { errors.push("Full Name is required."); }
             if (email.trim() === '') { errors.push("Email Address is required."); } 
-            else if (!email.includes('@')) { errors.push("Please enter a valid email address.");}
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errors.push("Please enter a valid email address.");}
             if (!agree) { errors.push("You must agree to the statement."); }
             if (errors.length > 0) {
-                formMessage.innerHTML = `<p style="color: #ffdddd;">${errors.join('<br>')}</p>`;
+                formMessage.innerHTML = `<p style="color: #D32F2F; font-weight: bold;">${errors.join('<br>')}</p>`;
             } else {
                  formMessage.innerHTML = '<p style="color: #d4edda;">Thank you for signing! Your voice has been added.</p>';
                  document.getElementById('petition-form').reset();
             }
         });
 
-        // Mobile menu auto-close logic
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('menu-toggle').checked = false;
