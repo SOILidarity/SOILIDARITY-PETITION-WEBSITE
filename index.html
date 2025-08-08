@@ -73,7 +73,15 @@
         }
         .hero-content { z-index: 2; animation: fadeInUp 1.5s ease-out forwards; }
         #hero h1 { font-size: 4.5vw; margin-bottom: 20px; font-family: var(--font-family-headings); text-shadow: 3px 3px 8px rgba(0,0,0,0.7); font-weight: 700; }
-        #hero p { font-size: 1.5vw; max-width: 800px; margin-bottom: 30px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+        
+        /* FINAL CORRECTION: Added margin: auto to center the p element itself */
+        #hero p {
+            font-size: 1.5vw;
+            max-width: 800px;
+            margin: 0 auto 30px; /* Centers the paragraph block */
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        }
+
         .button { display: inline-block; background: var(--accent-color); color: var(--white); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .button:hover { background: #D32F2F; transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
         .shape-divider { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; transform: rotate(180deg); }
@@ -117,7 +125,6 @@
         .bar-chart .bar span { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 13px; color: var(--dark-gray); font-weight: bold; }
         @keyframes grow-bar { from { height: 0; } }
         
-        /* Updated Stat Card for flexible height */
         .stat-card {
             background-color: var(--primary-color); color: var(--white); padding: 25px; text-align: center;
             border-radius: 8px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
@@ -135,22 +142,22 @@
         .references-list li a { color: var(--accent-color); text-decoration: none; word-break: break-all; }
         .references-list li a:hover { text-decoration: underline; }
 
-        /* === DESKTOP LAYOUT OVERRIDES (The magic happens here) === */
+        /* === DESKTOP LAYOUT OVERRIDES === */
         @media (min-width: 769px) {
             #crisis .crisis-grid,
             #data-visualization .vis-grid {
-                grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
-                gap: 40px; /* More space for desktop */
-                align-items: stretch; /* KEY: Makes all cards in a row the same height */
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 40px; 
+                align-items: stretch; 
             }
 
             #team .team-grid {
-                grid-template-columns: repeat(4, 1fr); /* A 4-column grid for the team */
+                grid-template-columns: repeat(4, 1fr); 
                 gap: 30px;
             }
         }
 
-        /* === MOBILE RESPONSIVE STYLES (max-width: 768px) === */
+        /* === MOBILE RESPONSIVE STYLES === */
         @media (max-width: 768px) {
             header .desktop-nav { display: none; }
             .hamburger-menu { display: block; position: relative; z-index: 1010; }
